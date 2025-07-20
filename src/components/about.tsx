@@ -14,7 +14,7 @@ export default function About() {
         <h2 className="text-4xl font-bold text-gray-800 mb-6">About Me</h2>
 
         <p className="text-gray-600 text-lg mb-10">
-          I'm a full-stack engineer passionate about building thoughtful, user-focused web applications.
+          I&apos;m a full-stack engineer passionate about building thoughtful, user-focused web applications.
           My primary focus is on <span className="text-blue-600 font-medium">Ruby on Rails</span>, where I love crafting clean, maintainable backends and high-performance APIs.
           I also work with <span className="text-blue-600 font-medium">JavaScript, TypeScript, and Node.js</span> to create interactive frontends and modern full-stack applications.
         </p>
