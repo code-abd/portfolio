@@ -39,7 +39,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-4xl sm:text-6xl font-bold text-gray-800"
         >
-          Hi, I'm <span className="text-gradient">Abd</span>{' '}
+          Hi, I&apos;m <span className="text-gradient">Abd</span>{' '}
           <motion.span
             className="inline-block origin-bottom-left"
             variants={{
