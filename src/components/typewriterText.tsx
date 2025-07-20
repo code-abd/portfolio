@@ -6,30 +6,31 @@ const words = ['Abdullah Nadeem', 'code-abd', 'Fullstack Developer', 'Creative C
 
 export default function TypewriterText() {
   const [index, setIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
   const [subIndex, setSubIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [displayText, setDisplayText] = useState('');
 
   useEffect(() => {
     const currentWord = words[index];
+    let timeout: NodeJS.Timeout;
 
     if (!isDeleting && subIndex < currentWord.length) {
-      setTimeout(() => setSubIndex((prev) => prev + 1), 100);
+      timeout = setTimeout(() => setSubIndex(subIndex + 1), 100);
     } else if (isDeleting && subIndex > 0) {
-      setTimeout(() => setSubIndex((prev) => prev - 1), 50);
+      timeout = setTimeout(() => setSubIndex(subIndex - 1), 50);
     } else {
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         setIsDeleting((prev) => !prev);
         if (!isDeleting) {
-          setTimeout(() => {
-            setIndex((prev) => (prev + 1) % words.length);
-          }, 1000);
+          setTimeout(() => setIndex((prev) => (prev + 1) % words.length), 1000);
         }
       }, 800);
     }
 
     setDisplayText(currentWord.substring(0, subIndex));
-  }, [subIndex, isDeleting]);
+
+    return () => clearTimeout(timeout);
+  }, [index, subIndex, isDeleting]);
 
   return (
     <h1 className="text-2xl md:text-3xl font-bold text-gradient whitespace-nowrap">

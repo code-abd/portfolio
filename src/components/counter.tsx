@@ -11,15 +11,14 @@ type CounterProps = {
 
 export default function Counter({ value, duration = 1000 }: CounterProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false }); // allow multiple triggers
-  const pathname = usePathname(); // detect route changes
+  const isInView = useInView(ref, { once: false });
+  const pathname = usePathname();
 
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (!isInView) return;
 
-    let start = 0;
     const startTime = performance.now();
 
     const animate = (currentTime: number) => {
@@ -30,13 +29,11 @@ export default function Counter({ value, duration = 1000 }: CounterProps) {
 
       if (progress < 1) {
         requestAnimationFrame(animate);
-      } else {
-        setCount(value);
       }
     };
 
     requestAnimationFrame(animate);
-  }, [isInView, value, duration, pathname]); // runs on pathname (route) change
+  }, [isInView, value, duration, pathname]);
 
   return <span ref={ref}>{count}</span>;
 }
