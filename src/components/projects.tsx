@@ -8,8 +8,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const projects = [
   {
-    title: "Arena Booking System",
-    image: "/images/arena.jpg",
+    title: "Muqabil",
+    image: "/muqabil-change-this.png",
     description: "Microservice-based platform built with Ruby on Rails & Node.js.",
     tech: ["Ruby on Rails", "Node.js", "PostgreSQL"],
     github: "https://github.com/yourusername/arena-booking",
@@ -17,17 +17,25 @@ const projects = [
   },
   {
     title: "Portfolio Website",
-    image: "/images/portfolio.jpg",
+    image: "/images/portfolio.jpeg",
     description: "Personal website built with Next.js, Tailwind CSS & Framer Motion.",
     tech: ["Next.js", "Tailwind", "Framer Motion"],
     github: "https://github.com/yourusername/portfolio",
     demo: "#",
   },
   {
-    title: "Analytics Dashboard",
-    image: "/images/dashboard.jpg",
+    title: "Aggero",
+    image: "/aggero-thumbnail.jpeg",
     description: "Real-time dashboard for metrics and user engagement.",
     tech: ["React", "Chart.js", "Express"],
+    github: "#",
+    demo: "#",
+  },
+  {
+    title: "SprintFWD",
+    image: "/sprintfwd-thumbnail.jpeg",
+    description: "Real-time dashboard for metrics and user engagement.",
+    tech: ["Ruby on Rails", "NodeJs", "Express", "Sinatra"],
     github: "#",
     demo: "#",
   },
