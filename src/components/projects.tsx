@@ -1,67 +1,110 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Image from "next/image"
-import Link from "next/link"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Github,
+  Heart,
+  Signal,
+  Bot,
+  AlertTriangle,
+} from "lucide-react";
 
 const projects = [
   {
     title: "Muqabil",
     image: "/muqabil-change-this.png",
     description: "Microservice-based platform built with Ruby on Rails & Node.js.",
-    tech: ["Ruby on Rails", "Node.js", "PostgreSQL"],
+    tech: [
+      { name: "Ruby on Rails", icon: "rails.svg" },
+      { name: "Node.js", icon: "nodejs-dark.svg" },
+      { name: "PostgreSQL", icon: "postgresql-dark.svg" }
+    ],
     github: "https://github.com/yourusername/arena-booking",
     demo: "#",
+    petProject: true,
+    aiGenerated: false,
+    isPublic: false,
+    inDevelopment: true,
   },
   {
     title: "Portfolio Website",
     image: "/images/portfolio.jpeg",
     description: "Personal website built with Next.js, Tailwind CSS & Framer Motion.",
-    tech: ["Next.js", "Tailwind", "Framer Motion"],
+    tech: [
+      { name: "Next.js", icon: "nextjs-dark.svg" },
+      { name: "Tailwind CSS", icon: "tailwindcss-dark.svg" },
+      { name: "React", icon: "react-dark.svg" }
+    ],
     github: "https://github.com/yourusername/portfolio",
-    demo: "#",
+    demo: "https://code-abd-portfolio.vercel.app/",
+    petProject: true,
+    aiGenerated: true,
+    isPublic: true,
+    inDevelopment: false,
   },
   {
     title: "Aggero",
     image: "/aggero-thumbnail.jpeg",
     description: "Real-time dashboard for metrics and user engagement.",
-    tech: ["React", "Chart.js", "Express"],
+    tech: [
+      { name: "React", icon: "react-dark.svg" },
+      { name: "TS", icon: "typescript.svg" },
+      { name: "Meta", icon: "meta.svg" },
+      { name: "Twitter | X", icon: "x.svg" },
+      { name: "Twitch", icon: "twitch.svg" },
+      { name: "Tiktok", icon: "tiktok.svg" },
+      { name: "TypeScript", icon: "tsnode.svg" }
+    ],
     github: "#",
-    demo: "#",
+    demo: "https://aggero.io/",
+    petProject: false,
+    aiGenerated: false,
+    isPublic: false,
+    inDevelopment: false
   },
   {
     title: "SprintFWD",
     image: "/sprintfwd-thumbnail.jpeg",
     description: "Real-time dashboard for metrics and user engagement.",
-    tech: ["Ruby on Rails", "NodeJs", "Express", "Sinatra"],
+    tech: [
+      { name: "Ruby on Rails", icon: "rails.svg" },
+      { name: "AWS", icon: "aws-dark.svg" },
+      { name: "Node.js", icon: "nodejs-dark.svg" },
+    ],
     github: "#",
-    demo: "#",
+    demo: "https://sprintfwd.com/work",
+    petProject: false,
+    aiGenerated: false,
+    isPublic: false,
+    inDevelopment: false
   },
-]
+];
 
 export default function SingleProjectShowcase() {
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState(0);
 
   const goTo = (index: number) => {
-    if (index >= 0 && index < projects.length) setCurrent(index)
-  }
+    if (index >= 0 && index < projects.length) setCurrent(index);
+  };
 
   const goLeft = () => {
-    setCurrent((prev) => (prev === 0 ? projects.length - 1 : prev - 1))
-  }
+    setCurrent((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  };
 
   const goRight = () => {
-    setCurrent((prev) => (prev === projects.length - 1 ? 0 : prev + 1))
-  }
+    setCurrent((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <section className="py-32 px-6 bg-gray-50 flex flex-col items-center justify-center">
       <h2 className="text-4xl font-bold text-gray-800 text-center">Projects</h2>
 
       <div className="relative w-[90%] min-h-[32rem] flex items-center justify-center">
-        {/* Left Button */}
         <button
           onClick={goLeft}
           className="absolute left-[-2.5rem] top-1/2 transform -translate-y-1/2 z-10 bg-white border border-gray-300 rounded-full p-2 shadow hover:bg-blue-100 transition"
@@ -87,35 +130,86 @@ export default function SingleProjectShowcase() {
               />
             </div>
             <div className="p-6 text-left">
-              <h3 className="text-2xl font-semibold text-gray-800">{projects[current].title}</h3>
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                <h3 className="text-2xl font-semibold text-gray-800">
+                  {projects[current].title}
+                </h3>
+
+                {projects[current].petProject && (
+                  <span className="inline-flex items-center gap-1 bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-1 rounded-full shadow-sm">
+                    <Heart className="w-3 h-3 fill-pink-500 text-pink-500" />
+                    Pet Project
+                  </span>
+                )}
+
+                {projects[current].aiGenerated && (
+                  <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full shadow-sm">
+                    <Bot className="w-3 h-3 text-blue-500" />
+                    AI Generated
+                  </span>
+                )}
+
+                {projects[current].inDevelopment && (
+                  <span className="inline-flex items-center gap-1 bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-1 rounded-full shadow-sm">
+                    <AlertTriangle className="w-3 h-3 text-yellow-500" />
+                    In Development
+                  </span>
+                )}
+              </div>
+
               <p className="text-gray-600 mt-2 mb-4">{projects[current].description}</p>
 
-              <ul className="flex flex-wrap gap-2 mb-4">
+              <ul className="flex flex-wrap gap-4 mb-6">
                 {projects[current].tech.map((tech, i) => (
-                  <li
-                    key={i}
-                    className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium"
-                  >
-                    {tech}
+                  <li key={i} className="flex items-center gap-2">
+                    <Image
+                      src={`/tech/${tech.icon}`}
+                      alt={tech.name}
+                      width={24}
+                      height={24}
+                      className="object-contain"
+                    />
+                    <span className="text-sm text-gray-700">{tech.name}</span>
                   </li>
                 ))}
               </ul>
 
               <div className="flex gap-4 text-sm">
-                <Link href={projects[current].github} target="_blank" className="text-blue-600 underline">
-                  GitHub
-                </Link>
-                {projects[current].demo && (
-                  <Link href={projects[current].demo} target="_blank" className="text-blue-600 underline">
-                    Live Demo
+                {/* GitHub Button */}
+                {projects[current].isPublic && projects[current].github && (
+                  <Link
+                    href={projects[current].github}
+                    target="_blank"
+                    className="bg-gray-100 text-gray-800 px-4 py-2 rounded-md font-medium hover:bg-gray-200 transition inline-flex items-center gap-2"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
                   </Link>
+                )}
+
+                {/* Demo Button or In Development */}
+                {projects[current].inDevelopment ? (
+                  <span className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-md font-medium inline-flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4" />
+                    In Development
+                  </span>
+                ) : (
+                  projects[current].demo && (
+                    <Link
+                      href={projects[current].demo}
+                      target="_blank"
+                      className="bg-green-100 text-green-800 px-4 py-2 rounded-md font-medium hover:bg-green-200 transition inline-flex items-center gap-2"
+                    >
+                      <Signal className="w-4 h-4" />
+                      Live Demo
+                    </Link>
+                  )
                 )}
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Right Button */}
         <button
           onClick={goRight}
           className="absolute right-[-2.5rem] top-1/2 transform -translate-y-1/2 z-10 bg-white border border-gray-300 rounded-full p-2 shadow hover:bg-blue-100 transition"
@@ -124,7 +218,6 @@ export default function SingleProjectShowcase() {
         </button>
       </div>
 
-      {/* Dot Indicators */}
       <div className="mt-6 flex gap-3">
         {projects.map((_, i) => (
           <button
@@ -137,5 +230,5 @@ export default function SingleProjectShowcase() {
         ))}
       </div>
     </section>
-  )
+  );
 }
