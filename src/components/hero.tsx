@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaCalendarAlt } from 'react-icons/fa';
 import { FiEye, FiDownload, FiPhoneCall } from 'react-icons/fi';
 import Counter from './counter';
 import Link from 'next/link';
@@ -78,7 +78,7 @@ export default function Hero() {
 
           {/* Download Resume */}
           <Link
-            href="/resume.pdf"
+            href="/abdullahResume.pdf"
             download
             className="group relative bg-white border border-blue-600 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-50 transition-all duration-300 flex items-center overflow-hidden"
           >
@@ -118,14 +118,20 @@ export default function Hero() {
       </motion.div>
 
       <div className="flex justify-center gap-6 text-2xl text-gray-600 mt-10 mb-6">
-        <a href="https://github.com/abd" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800">
+        <a href="https://github.com/code-abd" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800">
           <FaGithub />
         </a>
         <a href="https://linkedin.com/in/abd" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
           <FaLinkedin />
         </a>
-        <a href="https://twitter.com/abd" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
-          <FaTwitter />
+        <a
+          href="https://calendly.com/abd-nadeem-dev/intro-with-abd"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-green-600"
+          title="Book a Call"
+        >
+          <FaCalendarAlt />
         </a>
       </div>
 

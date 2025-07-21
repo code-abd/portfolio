@@ -53,12 +53,11 @@ const projects = [
     description: "Real-time dashboard for metrics and user engagement.",
     tech: [
       { name: "React", icon: "react-dark.svg" },
-      { name: "TS", icon: "typescript.svg" },
-      { name: "Meta", icon: "meta.svg" },
+      { name: "TypeScript", icon: "typescript.svg" },
+      { name: "Facebook", icon: "facebook.svg" },
       { name: "Twitter | X", icon: "x.svg" },
       { name: "Twitch", icon: "twitch.svg" },
       { name: "Tiktok", icon: "tiktok.svg" },
-      { name: "TypeScript", icon: "tsnode.svg" }
     ],
     github: "#",
     demo: "https://aggero.io/",
@@ -101,8 +100,10 @@ export default function SingleProjectShowcase() {
   };
 
   return (
-    <section className="py-32 px-6 bg-gray-50 flex flex-col items-center justify-center">
-      <h2 className="text-4xl font-bold text-gray-800 text-center">Projects</h2>
+    <section className="py-32 px-6 bg-gray-50 flex flex-col items-center justify-center"
+      id="projects"
+    >
+      <h2 className="text-4xl font-bold text-gray-800 text-center mb-6">Projects</h2>
 
       <div className="relative w-[90%] min-h-[32rem] flex items-center justify-center">
         <button
@@ -121,14 +122,15 @@ export default function SingleProjectShowcase() {
             transition={{ duration: 0.5 }}
             className="w-full max-w-[85%] bg-white rounded-xl shadow-xl overflow-hidden"
           >
-            <div className="relative h-64 w-full">
-              <Image
-                src={projects[current].image}
-                alt={projects[current].title}
-                fill
-                className="object-cover"
-              />
-            </div>
+            <div className="w-full h-64 bg-gray-100 relative flex items-center justify-center overflow-hidden">
+  <Image
+    src={projects[current].image}
+    alt={projects[current].title}
+    fill
+    className="object-contain p-4"
+    sizes="(max-width: 768px) 100vw, 700px"
+  />
+</div>
             <div className="p-6 text-left">
               <div className="flex items-center gap-2 mb-1 flex-wrap">
                 <h3 className="text-2xl font-semibold text-gray-800">

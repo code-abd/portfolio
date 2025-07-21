@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Github, Linkedin } from "lucide-react"
+import { Mail, Github, Linkedin, Users } from "lucide-react"
 
 export default function Contact() {
   return (
@@ -35,7 +35,7 @@ export default function Contact() {
         </p>
 
         {/* Contact Links */}
-        <div className="flex justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           <a
             href="mailto:abd.nadeem.dev@gmail.com"
             className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition"
@@ -62,6 +62,16 @@ export default function Contact() {
           >
             <Linkedin className="w-5 h-5" />
             LinkedIn
+          </a>
+
+          <a
+            href="https://calendly.com/abd-nadeem-dev/intro-with-abd"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition"
+          >
+            <Users className="w-5 h-5" />
+            Book a Meeting
           </a>
         </div>
       </motion.div>
