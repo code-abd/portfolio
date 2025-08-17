@@ -121,7 +121,7 @@ export default function Hero() {
         <a href="https://github.com/code-abd" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800">
           <FaGithub />
         </a>
-        <a href="https://linkedin.com/in/abd" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+        <a href="https://linkedin.com/in/abdnadeem-dev" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
           <FaLinkedin />
         </a>
         <a
